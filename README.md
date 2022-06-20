@@ -10,8 +10,6 @@ We achieved more than 90% measured with the F1-score.
 pip install -r requirements.txt
 ```
 
-Please use a GPU to to train the model. 
-
 ### Using the NER-Model
 
 ```python
