@@ -4,7 +4,7 @@ Biomedial NER Model based on the [BC5CDR (BioCreative V CDR corpus) dataset](htt
 BC5CDR corpus consists of 1500 PubMed articles with 4409 annotated chemicals, 5818 diseases.
 Diseases are labelled as I-Entity and Chemicals as O-Entity.
 
-We achieved more than 90% measured with the F1-score. 
+We achieved more than 90% for the F1-score. 
 
 ```
 pip install -r requirements.txt
