@@ -7,14 +7,14 @@ import warnings
 
 
 class BioModel:
-    def __init__(self, labels, train_args):
+    def __init__(self, labels, train_args, import_=True):
         logging.basicConfig(level=logging.DEBUG)
         transformers_logger = logging.getLogger('transformers')
         transformers_logger.setLevel(logging.WARNING)
 
         if not self.check_gpu():
             self.model = NERModel('bert', 'dmis-lab/biobert-v1.1', labels=labels, use_cuda=False, args=train_args)
-        else:
+        elif import_==True:
             self.model = NERModel('bert', 'dmis-lab/biobert-v1.1', labels=labels, args=train_args)
 
     def train(self, train_df, test_df, dev_df):
