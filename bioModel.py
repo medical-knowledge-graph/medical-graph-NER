@@ -16,6 +16,8 @@ class BioModel:
             self.model = NERModel('bert', 'dmis-lab/biobert-v1.1', labels=labels, use_cuda=False, args=train_args)
         elif import_==True:
             self.model = NERModel('bert', 'dmis-lab/biobert-v1.1', labels=labels, args=train_args)
+        else:
+            self.load_model()
 
     def train(self, train_df, test_df, dev_df):
         self.check_gpu()
