@@ -32,9 +32,9 @@ def load_files():
     test_df = file_to_df('data/test.txt')
     dev_df = file_to_df('data/dev.txt')
 
-    train_df.words = train_df.words.str.lower()
-    test_df.words = test_df.words.str.lower()
-    dev_df.words = dev_df.words.str.lower()
+#    train_df.words = train_df.words.str.lower()
+#    test_df.words = test_df.words.str.lower()
+#    dev_df.words = dev_df.words.str.lower()
 
     return train_df, test_df, dev_df
 
