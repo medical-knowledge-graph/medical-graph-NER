@@ -10,7 +10,7 @@ class MedGraphNER:
 
         if os.path.isfile('model/model'):
             print("loading model....")
-            self.model = bioModel.BioModel(labels, train_args)
+            self.model = bioModel.BioModel(labels, train_args, import_=False)
         else:
             print("model was not found. Starting training...")
             self.model = bioModel.BioModel(labels, train_args)
