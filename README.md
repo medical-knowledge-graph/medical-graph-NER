@@ -9,6 +9,11 @@ We achieved more than 90% for the F1-score.
 ```
 pip install -r requirements.txt
 ```
+Also install:
+
+```
+python -m spacy download en_core_web_sm
+```
 
 ### Using the NER-Model
 
