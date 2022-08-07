@@ -31,7 +31,3 @@ mgner.get_bio_NER("this article is about diabetes")
 >> > {'diabetes': 'I-Entity'}
 
 ```
-
-### Examples
-
-You can see a direct comparison between our NER-model and the SciSpacy model on real world data (see 'Example results.csv').
