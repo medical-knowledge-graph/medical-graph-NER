@@ -4,6 +4,9 @@ import NERtokens
 import os.path
 
 class MedGraphNER:
+    """
+
+    """
     def __init__(self):
         train_args = dataloader.TRAIN_ARGS
         train_df = dataloader.train_df
