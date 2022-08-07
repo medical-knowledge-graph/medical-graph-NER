@@ -4,7 +4,7 @@ Biomedial NER Model based on the [BC5CDR (BioCreative V CDR corpus) dataset](htt
 BC5CDR corpus consists of 1500 PubMed articles with 4409 annotated chemicals, 5818 diseases.
 Diseases & Chemicals are labelled as I-Entities and O-Entities.
 
-We achieved more than 90.4% for the F1-score. 
+We achieved more than 90.4% for the F1-score, which outperforms the SciSpacy model 'en_ner_bc5cdr_md'	(F1-scoe: 84.70%). (see 'Evaluation of our model.ipynb')
 
 ```
 pip install -r requirements.txt
@@ -30,3 +30,5 @@ mgner.get_bio_NER("this article is about diabetes")
 >>> {'diabetes' : 'I-Entity'} 
 
 ```
+
+### 
