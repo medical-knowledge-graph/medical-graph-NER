@@ -28,6 +28,6 @@ from medGraphNER import medGraphNER
 mgner = medGraphNER.MedGraphNER()  # this can take a lot of time if the model was not trained before
 mgner.get_bio_NER("this article is about diabetes")
 
->> > {'diabetes': 'I-Entity'}
+>> > {'diabetes': 'Disease'}
 
 ```

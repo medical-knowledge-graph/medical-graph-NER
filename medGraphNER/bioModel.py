@@ -7,7 +7,15 @@ import warnings
 
 
 class BioModel:
+    """ Includes all functionalities of the ML-model.
+    """
+
     def __init__(self, labels, train_args):
+        """ Checks if a created model exists or loads it based on BioBert v1.1.
+
+        :param labels: Labels of the traindataset
+        :param train_args: Trainparameters for the train process.
+        """
         logging.basicConfig(level=logging.DEBUG)
         transformers_logger = logging.getLogger('transformers')
         transformers_logger.setLevel(logging.WARNING)
@@ -20,6 +28,12 @@ class BioModel:
             self.load_model()
 
     def train(self, train_df, test_df, dev_df):
+        """ Finetunes model based on BioBert v1.1.
+
+        :param train_df: Training dataset
+        :param test_df: Test dataset
+        :param dev_df: Development dataset
+        """
         self.check_gpu()
         self.model.train_model(train_df, eval_data=dev_df)
         result, _, _ = self.model.eval_model(test_df)
@@ -28,6 +42,10 @@ class BioModel:
 
     @staticmethod
     def check_gpu():
+        """ Checks if GPU exists and if not, it warns the user about timecomplexity.
+
+        :return: Returns True if GPU exists, otherwise returns False.
+        """
         if not torch.cuda.is_available():
             warnings.warn("You are not training on a GPU. This may take a lot of time.")
             return False
@@ -36,6 +54,10 @@ class BioModel:
 
     @staticmethod
     def save_model(model):
+        """ Saves model as soon as the training is finished.
+
+        :param model: Trained model.
+        """
         dir_name = 'model'
         try:
             os.mkdir(dir_name)
@@ -46,6 +68,8 @@ class BioModel:
             print("Directory ", dir_name, " already exists or permission denied")
 
     def load_model(self):
+        """ Loads trained model.
+        """
         dir_name = 'model'
 
         try:
@@ -60,6 +84,11 @@ class BioModel:
             print("Directory ", dir_name, " does not exist or permission denied")
 
     def predict(self, text):
+        """ Predicts Diseases and Chemicals into right format based on the input.
+
+        :param text: Input of the user.
+        :return: Returns predicted chemicals and diseases.
+        """
         pred = self.model.predict([text], split_on_space=False)
 
         if pred:

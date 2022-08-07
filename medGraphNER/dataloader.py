@@ -1,6 +1,6 @@
 import pandas as pd
 
-
+# Parameters for the trainprocess.
 TRAIN_ARGS = {
     'reprocess_input_data': True,
     'overwrite_output_dir': True,
@@ -16,6 +16,11 @@ TRAIN_ARGS = {
 
 
 def file_to_df(filename):
+    """ Reads a file and transforms it to a readable format and filters by empty entries.
+
+    :param filename: Filename.
+    :return: Returns correct format with filtered entries.
+    """
     df = pd.read_csv(filename,
                     sep = '\t', header = None, keep_default_na = False,
                     names = ['words', 'pos', 'chunk', 'labels', 'sentence_id'],
@@ -25,6 +30,10 @@ def file_to_df(filename):
 
 
 def load_files():
+    """ Loads train, test and evaluation dataset.
+
+    :return: Returns train, test and evaluation dataset.
+    """
     train_df = file_to_df('data/train_new.txt')
     test_df = file_to_df('data/test_new.txt')
     dev_df = file_to_df('data/eval_new.txt')
